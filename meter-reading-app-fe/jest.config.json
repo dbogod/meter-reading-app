@@ -1,0 +1,12 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "jsdom",
+  "moduleNameMapper": {
+    "^@State/(.*)$": "<rootDir>/src/state/$1",
+    "^@Components/(.*)$": "<rootDir>/src/components/$1",
+    "^@Screens/(.*)$": "<rootDir>/src/screens/$1",
+    "^@Types/(.*)$": "<rootDir>/src/types/$1"
+  },
+
+  "moduleDirectories": ["node_modules", "src"]
+}
