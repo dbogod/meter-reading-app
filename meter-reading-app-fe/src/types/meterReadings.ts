@@ -4,8 +4,8 @@ export enum TMeterType {
 }
 
 export interface TMeterReading {
-  id: number
-  accountId: number
+  id: string
+  accountId: string
   meterReadingDate: Date
   meterReadingType: TMeterType
   readingValue: string

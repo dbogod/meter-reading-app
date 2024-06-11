@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Select from 'react-select'
 import { ZodError, z } from 'zod'
 
-
 import Input from '@Components/ui/Input'
 import FormWrapper from '@Components/wrappers/FormWrapper'
 import ButtonLink from '@Components/ui/ButtonLink'
@@ -56,7 +55,7 @@ const AddMeterReading: React.FC = () => {
     setMeterReading(e.target.value)
   }
 
-  const submitHandler = (e: React.FormEvent) => {
+  const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault()
 
     const validatedFormData = meterReadingSchema.safeParse({
@@ -70,7 +69,7 @@ const AddMeterReading: React.FC = () => {
       try {
         const { meterReadingType, readingValue } = validatedFormData.data
 
-        addMeterReading({
+        await addMeterReading({
           accountId: user?.id,
           meterReadingType,
           readingValue,

@@ -1,11 +1,8 @@
-import { FormEvent } from 'react'
-
 import ContentWrapper from './ContentWrapper'
 
 type TFormWrapperProps = {
   submitHandler:
     | ((e: React.FormEvent<HTMLFormElement>) => Promise<void>)
-    | ((e: FormEvent) => void)
   children: React.ReactNode
   heading?: string
 }

@@ -28,10 +28,7 @@ server.post('/login', (req, res) => {
 server.get('/accounts/:accountId/meter-readings', (req, res) => {
   const { accountId } = req.params
   const db = router.db
-  const account = db
-    .get('accounts')
-    .find({ id: parseInt(accountId) })
-    .value()
+  const account = db.get('accounts').find({ id: accountId }).value()
 
   if (account && account.meterReadings) {
     res.json(
@@ -58,14 +55,14 @@ server.post('/accounts/:accountId/meter-readings', (req, res) => {
   const db = router.db
   const account = db
     .get('accounts')
-    .find({ id: parseInt(accountId) })
+    .find({ id: accountId })
     .value()
 
   if (account) {
     const id = uuidv4()
     const newReading = {
       id,
-      accountId: parseInt(accountId),
+      accountId,
       meterReadingType,
       readingValue,
       meterReadingDate: new Date().toISOString().split('T')[0],
